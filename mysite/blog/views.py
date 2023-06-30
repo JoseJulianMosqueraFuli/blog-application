@@ -3,7 +3,7 @@ from .models import Post
 
 
 def post_list(request):
-    posts = Post.publish.all()
+    posts = Post.objects.filter(status=Post.Status.PUBLISHED)
     return render(request, "blog/post/list.xhtml", {"post": posts})
 
 
