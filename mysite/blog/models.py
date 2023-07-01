@@ -7,7 +7,7 @@ from django.urls import reverse
 
 class PublishedManager(models.Manager):
     def get_queryset(self) -> QuerySet:
-        return super().get_queryset().filter(status=Post.Status())
+        return super().get_queryset().filter(status=Post.Status.PUBLISHED)
 
 
 class Post(models.Model):
@@ -21,10 +21,13 @@ class Post(models.Model):
     body = models.TextField()
     publish = models.DateTimeField(default=timezone.now)
     created = models.DateTimeField(auto_now_add=True)
-    updates = models.DateTimeField(auto_now=True)
+    updated = models.DateTimeField(auto_now=True)
     status = models.CharField(
         max_length=2, choices=Status.choices, default=Status.DRAFT
     )
+
+    objects = models.Manager()
+    published = PublishedManager()
 
     class Meta:
         ordering = ["-publish"]
@@ -36,4 +39,12 @@ class Post(models.Model):
         return self.title
 
     def get_absolute_url(self):
-        return reverse("blog:post_detail", args=[self.id])
+        return reverse(
+            "blog:post_detail",
+            args=[
+                self.publish.year,
+                self.publish.month,
+                self.publish.day,
+                self.slug,
+            ],
+        )
