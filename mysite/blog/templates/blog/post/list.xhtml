@@ -7,6 +7,6 @@
 			<a href="{{ post.get_aboslute_url }}">{{ post.title }}</a>
 		</h2>
 		<p class="date">Published {{ post.publish }} by {{ post.author }}</p>
-		{ post.body | truncatewords:30 | linebreaks }}
+		{{ post.body | truncatewords:30 | linebreaks }}
 	{% endfor %}
 {% endblock %}
