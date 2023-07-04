@@ -1,5 +1,6 @@
 from django import forms
 from django.core.validators import validate_email
+from .models import Comment
 
 
 class EmailPostForm(forms.Form):
@@ -25,3 +26,9 @@ class EmailPostForm(forms.Form):
         required=False,
         widget=forms.Textarea(attrs={"placeholder": "Enter your comments"}),
     )
+
+
+class CommentForm(forms.ModelForm):
+    class Meta:
+        model = Comment
+        fields = ["name", "email", "body"]
