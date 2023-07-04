@@ -1,8 +1,27 @@
 from django import forms
+from django.core.validators import validate_email
 
 
 class EmailPostForm(forms.Form):
-    name = forms.CharField(max_length=50)
-    email = forms.EmailField()
-    to = forms.EmailField()
-    comments = forms.CharField(required=False, widget=forms.Textarea)
+    name = forms.CharField(
+        max_length=50,
+        label="Your Name",
+        error_messages={
+            "required": "Please enter your name.",
+            "max_length": "Name should not exceed 50 characters.",
+        },
+        widget=forms.TextInput(attrs={"placeholder": "Enter your name"}),
+    )
+    email = forms.EmailField(
+        label="Your Email",
+        validators=[validate_email],
+        widget=forms.EmailInput(attrs={"placeholder": "Enter your email"}),
+    )
+    to = forms.EmailField(
+        label="Recipient's Email",
+        widget=forms.EmailInput(attrs={"placeholder": "Enter recipient's email"}),
+    )
+    comments = forms.CharField(
+        required=False,
+        widget=forms.Textarea(attrs={"placeholder": "Enter your comments"}),
+    )
