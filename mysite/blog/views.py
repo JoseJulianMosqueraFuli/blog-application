@@ -39,9 +39,12 @@ def post_list(request, tag_slug=None):
     except PageNotAnInteger:
         posts = paginator.page(1)
     except EmptyPage:
-        # If the page is out of range (e.g. 9999),
         posts = paginator.page(paginator.num_pages)
-    return render(request, "blog/post/list.xhtml", {"posts": posts})
+    return render(
+        request,
+        "blog/post/list.xhtml",
+        {"posts": posts, "page_obj": posts},
+    )
 
 
 def post_detail(request, year, month, day, post):
@@ -58,7 +61,7 @@ def post_detail(request, year, month, day, post):
     return render(
         request,
         "blog/post/detail.xhtml",
-        {"post": post, "comments": comments, "form": CommentForm},
+        {"post": post, "comments": comments, "form": form},
     )
 
 
@@ -87,7 +90,7 @@ def post_share(request, post_id):
 def post_comment(request, post_id):
     post = get_object_or_404(Post, id=post_id)
     new_comment = None
-    form = CommentForm(data=request.Post)
+    form = CommentForm(data=request.POST)
     if form.is_valid():
         comment = form.save(commit=False)
         comment.post = post
