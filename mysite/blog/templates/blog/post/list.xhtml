@@ -2,7 +2,10 @@
 {% block title %} Curious Blog {% endblock %}
 {% block content %}
     <h1>Welcome to the curious blog</h1>
-    {% for post in posts %}
+      {% if tag %}
+        <h2>Posts tagged with "{{ tag.name }}"</h2>
+       {% endif %}
+      {% for post in posts %}
         <h2>
             <a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
         </h2>

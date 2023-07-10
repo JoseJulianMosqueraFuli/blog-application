@@ -44,7 +44,7 @@ def post_list(request, tag_slug=None):
     return render(
         request,
         "blog/post/list.xhtml",
-        {"posts": posts, "page_obj": posts},
+        {"posts": posts, "page_obj": posts, "tag": tag},
     )
 
 
