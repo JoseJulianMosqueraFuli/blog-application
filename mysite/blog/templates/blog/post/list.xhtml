@@ -1,4 +1,5 @@
 {% extends "blog/base.xhtml" %}
+{% load blogs_tags %}
 {% block title %} Curious Blog {% endblock %}
 {% block content %}
     <h1>Welcome to the curious blog</h1>
@@ -16,7 +17,7 @@
             {% endfor %}
         </p>
         <p class="date">Published {{ post.publish }} by {{ post.author }}</p>
-        {{ post.body | truncatewords:30 | linebreaks }}
+        {{ post.body | markdown | truncatewords_html:30}}
     {% endfor %}
     {% include "pagination.xhtml" with page_obj=page_obj %}
 {% endblock %}
