@@ -50,6 +50,12 @@ python manage.py migrate
 python manage.py runserver
 ```
 
+7. Run tests:
+
+```bash
+python manage.py test blog
+```
+
 ## Features
 
 - Data models and migrations: Design and manage the database structure for the blog application.
@@ -62,17 +68,17 @@ python manage.py runserver
 - Adding object pagination for improved user experience and navigation.
 - Utilizing class-based views to enhance code organization and reusability.
 - Integrating Django forms to allow users to recommend posts by email and comment on posts.
-
-## Next Steps
-
-In the next version, I will continue expanding the functionality of the blog application. The upcoming topics could include:
-
 - Integrating third-party applications
 - Using django-taggit to implement a tagging system
 - Building complex QuerySets to recommend similar posts
 - Creating custom template tags and filters to show a list of the latest posts and most commented posts in the sidebar
 - Creating a sitemap using the sitemap framework
 - Building an RSS feed using the syndication framework
+
+## Next Steps
+
+In the next version, I will continue expanding the functionality of the blog application. The upcoming topics could include:
+
 - Implementing a full-text search engine with Django and PostgreSQL
 
 Stay tuned for more updates and further improvements to the blog application!
