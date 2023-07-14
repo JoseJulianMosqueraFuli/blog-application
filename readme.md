@@ -4,7 +4,7 @@ This is a simple blog application built using the Django web framework. In this 
 
 ## Getting started
 
-To run this API on your local machine, follow these steps:
+To run this application using Docker, make sure you have Docker installed on your machine. Follow these steps:
 
 1. Clone the repository:
 
@@ -12,49 +12,19 @@ To run this API on your local machine, follow these steps:
 git clone git@github.com:JoseJulianMosqueraFuli/blog-application.git
 ```
 
-2. Create a virtual environment :
-
-```bash
-python3 -m venv venv
-```
-
-3. Activate the virtual environment, and Run :
-
-```bash
-pip install Django dot-env
-```
-
-4. Navigate into the cloned directory:
+2. Navigate into the cloned directory:
 
 ```bash
 cd blog-application/mysite
 ```
 
-5. Create the .env file to email configuration, like .env.example file:
-   _NOTE: more information to get the password in [link](https://support.google.com/accounts/answer/185833)_
+3. Build and run the Docker containers:
 
 ```bash
-EMAIL_HOST_USER ='your_account@gmail.com'
-EMAIL_PASSWORD = 'xxxxxxxxxxxxxxxx'
+docker-compose up --build
 ```
 
-6. Apply the database migrations:
-
-```bash
-python manage.py migrate
-```
-
-7. Start the development server:
-
-```bash
-python manage.py runserver
-```
-
-7. Run tests:
-
-```bash
-python manage.py test blog
-```
+4. The application should now be running. You can access it in your browser at `http://localhost:8000`.
 
 ## Features
 
@@ -74,12 +44,9 @@ python manage.py test blog
 - Creating custom template tags and filters to show a list of the latest posts and most commented posts in the sidebar
 - Creating a sitemap using the sitemap framework
 - Building an RSS feed using the syndication framework
+- Implementing a full-text search engine with Django and PostgreSQL
 
 ## Next Steps
-
-In the next version, I will continue expanding the functionality of the blog application. The upcoming topics could include:
-
-- Implementing a full-text search engine with Django and PostgreSQL
 
 Stay tuned for more updates and further improvements to the blog application!
 
