@@ -15,16 +15,25 @@ git clone git@github.com:JoseJulianMosqueraFuli/blog-application.git
 2. Navigate into the cloned directory:
 
 ```bash
-cd blog-application/mysite
+cd blog-application
 ```
 
-3. Build and run the Docker containers:
+3. If you want configure send mail feature, you must be create a .env like .env.example file:
+
+```bash
+EMAIL_HOST_USER ='your_account@gmail.com'
+EMAIL_PASSWORD = 'xxxxxxxxxxxxxxxx'
+```
+
+_NOTE: more information to get the password in [link](https://support.google.com/accounts/answer/185833)_
+
+4. Build and run the Docker containers:
 
 ```bash
 docker-compose up --build
 ```
 
-4. The application should now be running. You can access it in your browser at `http://localhost:8000`.
+5. The application should now be running. You can access it in your browser at `http://localhost:8000`.
 
 ## Features
 
