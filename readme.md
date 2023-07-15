@@ -57,8 +57,16 @@ docker-compose up --build
 
 ## Next Steps
 
-Stay tuned for more updates and further improvements to the blog application!
+Here are some things that we still need to do or add next:
+
+- Add tests (unit testing) - We have not added any unittests yet but will definitely
+
+Always could be improve
 
 ## License
 
 This project is licensed under the [MIT License](LICENSE).
+
+## Author
+
+Build it by Jose Julian Mosquera Fuli.
